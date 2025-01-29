@@ -1,0 +1,1 @@
+Note for techs - for player movement script to work, put all ground objects on layer 6. Ground
