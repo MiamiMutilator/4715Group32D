@@ -27,8 +27,14 @@ public class sceneManager : MonoBehaviour
         SceneManager.LoadScene("About");
     }
 
+    public void LoadOption()
+    {
+        SceneManager.LoadScene("Option");
+    }
+    
     public void Quit()
     {
+        Debug.Log("Quit Game");
         Application.Quit();
     }
 }
