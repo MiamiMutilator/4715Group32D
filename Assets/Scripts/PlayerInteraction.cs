@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public int health = 10;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -21,8 +22,9 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Triggered");
+            health--;
         }
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,6 +32,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("Defeated");
+        }
+        if (collision.gameObject.tag == "goal")
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("Finished");
         }
     }
 }
