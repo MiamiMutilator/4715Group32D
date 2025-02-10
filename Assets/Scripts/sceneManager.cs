@@ -37,4 +37,9 @@ public class sceneManager : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
+
+void Start ()
+{
+    Time.timeScale = 1f;
+}
 }
