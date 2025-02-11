@@ -5,6 +5,7 @@ using UnityEngine;
 public class Blink : MonoBehaviour
 {
     public float distance = 10f;
+    public GameObject trail;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class Blink : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Key Pressed");
+
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector2.right, distance);
 
             if (hit.collider == null)
@@ -29,6 +31,8 @@ public class Blink : MonoBehaviour
             {
                 transform.position = hit.point;
             }
+            StartCoroutine(LoseTime());
+
         }
     }
     private void OnDrawGizmos()
@@ -36,5 +40,16 @@ public class Blink : MonoBehaviour
         Gizmos.color = Color.blue;
 
         Gizmos.DrawLine(transform.position, transform.position + transform.localScale.x * Vector3.right * distance);
+    }
+
+    IEnumerator LoseTime()
+    {
+        while (true)
+        {
+            trail.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            trail.SetActive(false);
+            yield break;
+        }
     }
 }
