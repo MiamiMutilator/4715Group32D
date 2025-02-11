@@ -588,11 +588,11 @@ MonoBehaviour:
 
 
     Controls: WASD/arrow keys to move, space
-    to jump
+    to jump, esc to pause
 
 
-    Team: Andres Lopez, Howard De Ausen, Jake Hitzges, Ralfo Manzur,
-    Ronan Chumbanyang'
+    Team: Andres Lopez, Howard De Ausen, Jake Hitzges,
+    Ralfo Manzur, Ronan Chumbanyang'
 --- !u!222 &1385909179
 CanvasRenderer:
   m_ObjectHideFlags: 0
