@@ -7,7 +7,10 @@ public class PlayerInteraction : MonoBehaviour
 {
     public int health = 10;
     public bool isInvincible = false;
+    public bool isImmune = false;
     public int invincibilityTime = 5;
+    public int immunityTime = 3;
+
 
     //blink stuff
     public float distance = 10f;
@@ -88,10 +91,16 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("Defeated");
 
         }
+        else if (collision.gameObject.tag == "Enemy" && isImmune == true)
+        {
+            Debug.Log("Can't take damage!");
+        }
         else if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Took Damage!");
             health--;
+            isImmune = true;
+            StartCoroutine(LoseImmunityTime());
             canBlink = false;
         }
 
@@ -157,6 +166,16 @@ public void Invincible()
             trail.SetActive(true);
             yield return new WaitForSeconds(0.2f);
             trail.SetActive(false);
+            yield break;
+        }
+    }
+
+    IEnumerator LoseImmunityTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(immunityTime);
+            isImmune = false;
             yield break;
         }
     }
