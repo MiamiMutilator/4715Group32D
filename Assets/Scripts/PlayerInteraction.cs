@@ -130,8 +130,14 @@ public class PlayerInteraction : MonoBehaviour
             Destroy(collision.gameObject);
             Debug.Log("Can Blink!");
         }
+        if (collision.gameObject.tag == "Pit")
+        {
+            health = 0;
+            Debug.Log("Fell in pit!");
+        }
+
     }
-public void Invincible()
+    public void Invincible()
 {
     isInvincible = true;
            
