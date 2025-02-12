@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class PlayerInteraction : MonoBehaviour
     public float distance = 10f;
     public GameObject trail;
     public bool canBlink = false;
+
+    public Image sprite1;
+    public Image sprite2;
+    public Image sprite3;
+
+    public GameObject shield;
 
 
     // Start is called before the first frame update
@@ -41,6 +48,32 @@ public class PlayerInteraction : MonoBehaviour
             }
             StartCoroutine(LoseTime());
 
+        }
+
+        if (health == 3)
+        {
+            sprite1.enabled = true; 
+            sprite2.enabled = true;
+            sprite3.enabled = true;
+        }
+        if (health == 2)
+        {
+            sprite1.enabled = true;
+            sprite2.enabled = true;
+            sprite3.enabled = false;
+        }
+        if (health == 1)
+        {
+            sprite1.enabled = true;
+            sprite2.enabled = false;
+            sprite3.enabled = false;
+        }
+        if (health == 0)
+        {
+            sprite1.enabled = false;
+            sprite2.enabled = false;
+            sprite3.enabled = false;
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -79,6 +112,7 @@ public class PlayerInteraction : MonoBehaviour
             isInvincible = true;
             Destroy(collision.gameObject);
             Debug.Log("Is Invincible!");
+            shield.SetActive(true);
             StartCoroutine(LoseInvincibilityTime());
         }
         if (collision.gameObject.tag == "Blink")
@@ -102,6 +136,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             yield return new WaitForSeconds(invincibilityTime);
             isInvincible = false;
+            shield.SetActive(false);
             yield break;
         }
     }

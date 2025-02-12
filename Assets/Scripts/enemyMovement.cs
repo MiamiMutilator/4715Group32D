@@ -8,10 +8,13 @@ public class enemyMovement : MonoBehaviour
     public int timeMoved = 0;
     public int speed = 3;
 
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        StartCoroutine("LoseTime");
     }
 
     // Update is called once per frame
@@ -24,21 +27,22 @@ public class enemyMovement : MonoBehaviour
             if (timeMoved == 4)
             {
                 isLeft = false;
-                //workAround();
-                Debug.Log("ya");
+                timeMoved = 0;
+                FlipSprite();
             }
         }
 
-        /*if (isLeft == true)
+        else if (isLeft == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
 
             if (timeMoved == 4)
             {
                 isLeft = true;
-                workAround();
+                timeMoved = 0;
+                FlipSprite();
             }
-        }*/
+        }
 
     }
 
@@ -48,6 +52,18 @@ public class enemyMovement : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             timeMoved++;
+        }
+    }
+
+    private void FlipSprite()
+    {
+        if (isLeft == false)
+        {
+            spriteRenderer.flipX = true;
+        }
+        if (isLeft == true)
+        {
+            spriteRenderer.flipX = false;
         }
     }
 }
