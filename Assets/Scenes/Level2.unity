@@ -1611,6 +1611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invincibleSprite: {fileID: 1409896928}
   otherSprite: {fileID: 1202488290}
+  invincibleCheatIsOn: 0
 --- !u!4 &814491809
 Transform:
   m_ObjectHideFlags: 0
