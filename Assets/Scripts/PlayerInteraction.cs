@@ -19,7 +19,9 @@ public class PlayerInteraction : MonoBehaviour
     public Image sprite3;
 
     public GameObject shield;
-
+    public GameObject LoseUI;
+    public GameObject WinUI;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +75,7 @@ public class PlayerInteraction : MonoBehaviour
             sprite1.enabled = false;
             sprite2.enabled = false;
             sprite3.enabled = false;
+            LoseUI.SetActive(true);
             this.gameObject.SetActive(false);
         }
     }
@@ -109,11 +112,8 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (collision.gameObject.tag == "Invincible")
         {
-            isInvincible = true;
             Destroy(collision.gameObject);
-            Debug.Log("Is Invincible!");
-            shield.SetActive(true);
-            StartCoroutine(LoseInvincibilityTime());
+            Invincible();
         }
         if (collision.gameObject.tag == "Blink")
         {
@@ -122,6 +122,14 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("Can Blink!");
         }
     }
+public void Invincible()
+{
+    isInvincible = true;
+           
+            Debug.Log("Is Invincible!");
+            shield.SetActive(true);
+            StartCoroutine(LoseInvincibilityTime());
+}
 
     //blink stuff
     private void OnDrawGizmos()

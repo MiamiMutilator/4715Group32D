@@ -38,6 +38,11 @@ public class sceneManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 void Start ()
 {
     Time.timeScale = 1f;
