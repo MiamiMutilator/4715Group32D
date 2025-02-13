@@ -61,6 +61,7 @@ public class cheatMenu : MonoBehaviour
         Debug.Log("Invincible Cheat Activated!");
         player.GetComponent<PlayerInteraction>().shield.SetActive(true);
         player.GetComponent<PlayerInteraction>().shieldActive = true;
+        player.GetComponent<PlayerInteraction>().invincibleCheatSprite.SetActive(true);
     }
 
     private void DeactivateInvincible()
@@ -68,6 +69,7 @@ public class cheatMenu : MonoBehaviour
         Debug.Log("Invincible Cheat Deactivated.");
         player.GetComponent<PlayerInteraction>().shield.SetActive(false);
         player.GetComponent<PlayerInteraction>().shieldActive = false;
+        player.GetComponent<PlayerInteraction>().invincibleCheatSprite.SetActive(false);
     }
 
     private void ActivateOther()

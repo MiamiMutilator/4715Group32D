@@ -3604,6 +3604,10 @@ PrefabInstance:
       propertyPath: sprite3
       value: 
       objectReference: {fileID: 1336216253}
+    - target: {fileID: 4609247200709914722, guid: 931376d350ebbe54eb0a37c2c235adad, type: 3}
+      propertyPath: invincibleCheatSprite
+      value: 
+      objectReference: {fileID: 121722898}
     - target: {fileID: 7609778050548616441, guid: 931376d350ebbe54eb0a37c2c235adad, type: 3}
       propertyPath: m_RootOrder
       value: 13

@@ -534,7 +534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &180104099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16686,6 +16686,10 @@ PrefabInstance:
       propertyPath: sprite3
       value: 
       objectReference: {fileID: 1035984740}
+    - target: {fileID: 6137307522356812425, guid: 923c995436d116845b333db1371ad40f, type: 3}
+      propertyPath: invincibleCheatSprite
+      value: 
+      objectReference: {fileID: 1409896928}
     - target: {fileID: 7684509686004386063, guid: 923c995436d116845b333db1371ad40f, type: 3}
       propertyPath: m_IsActive
       value: 0
