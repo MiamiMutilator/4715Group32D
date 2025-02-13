@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     public float distance = 10f;
     public GameObject trail;
     public bool canBlink = false;
+    public bool shieldActive = false;
 
     public Image sprite1;
     public Image sprite2;
@@ -117,12 +119,17 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.gameObject.tag == "goal")
         {
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+            WinUI.SetActive(true);
             Debug.Log("Finished");
         }
         if (collision.gameObject.tag == "Invincible")
         {
             Destroy(collision.gameObject);
-            Invincible();
+            if (shieldActive == false)
+            {
+                Invincible();
+            }
         }
         if (collision.gameObject.tag == "Blink")
         {
@@ -135,7 +142,10 @@ public class PlayerInteraction : MonoBehaviour
             health = 0;
             Debug.Log("Fell in pit!");
         }
-
+        if (collision.gameObject.tag == "level1exit")
+        {
+            SceneManager.LoadScene("Level2");
+        }
     }
     public void Invincible()
 {
@@ -143,6 +153,7 @@ public class PlayerInteraction : MonoBehaviour
            
             Debug.Log("Is Invincible!");
             shield.SetActive(true);
+            shieldActive = true;
             StartCoroutine(LoseInvincibilityTime());
 }
 
@@ -153,13 +164,14 @@ public class PlayerInteraction : MonoBehaviour
 
         Gizmos.DrawLine(transform.position, transform.position + transform.localScale.x * Vector3.right * distance);
     }
-    IEnumerator LoseInvincibilityTime()
+    public IEnumerator LoseInvincibilityTime()
     {
         while (true)
         {
             yield return new WaitForSeconds(invincibilityTime);
             isInvincible = false;
             shield.SetActive(false);
+            shieldActive = false;
             yield break;
         }
     }
