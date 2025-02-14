@@ -28,6 +28,10 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject shield;
     public GameObject LoseUI;
     public GameObject WinUI;
+
+    public AudioSource enemyDefeatSFX;
+    public AudioSource itemPickupSFX;
+    public AudioSource playerInjuredSFX;
  
 
     // Start is called before the first frame update
@@ -93,6 +97,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("Defeated");
+            enemyDefeatSFX.Play();
 
         }
         else if (collision.gameObject.tag == "Enemy" && isImmune == true)
@@ -106,6 +111,7 @@ public class PlayerInteraction : MonoBehaviour
             isImmune = true;
             StartCoroutine(LoseImmunityTime());
             canBlink = false;
+            playerInjuredSFX.Play();
         }
 
 
@@ -117,6 +123,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("Defeated");
+            enemyDefeatSFX.Play();
         }
         if (collision.gameObject.tag == "goal")
         {
@@ -128,6 +135,7 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.gameObject.tag == "Invincible")
         {
             Destroy(collision.gameObject);
+            itemPickupSFX.Play();
             if (shieldActive == false)
             {
                 Invincible();
@@ -143,6 +151,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             health = 0;
             Debug.Log("Fell in pit!");
+            playerInjuredSFX.Play();
         }
         if (collision.gameObject.tag == "level1exit")
         {
