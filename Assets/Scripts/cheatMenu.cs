@@ -75,11 +75,15 @@ public class cheatMenu : MonoBehaviour
     private void ActivateOther()
     {
         Debug.Log("Other Cheat Activated!");
+        player.GetComponent<PlayerMovement>().speed = 16f;
+        player.GetComponent<PlayerInteraction>().otherCheatSprite.SetActive(true);
     }
 
     private void DeactivateOther()
     {
         Debug.Log("Other Cheat Deactivated.");
+        player.GetComponent<PlayerMovement>().speed = 8f;
+        player.GetComponent<PlayerInteraction>().otherCheatSprite.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

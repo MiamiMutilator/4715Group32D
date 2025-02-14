@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     public Image sprite2;
     public Image sprite3;
     public GameObject invincibleCheatSprite;
+    public GameObject otherCheatSprite;
 
     public GameObject shield;
     public GameObject LoseUI;

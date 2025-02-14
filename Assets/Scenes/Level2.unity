@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.63499, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1503,7 +1503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Other Cheat
+  m_Text: Super Speed
 --- !u!222 &420388423
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3339,8 +3339,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 922a78306bd5954438792f80975c1c6c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3604,6 +3604,10 @@ PrefabInstance:
       propertyPath: sprite3
       value: 
       objectReference: {fileID: 1336216253}
+    - target: {fileID: 4609247200709914722, guid: 931376d350ebbe54eb0a37c2c235adad, type: 3}
+      propertyPath: otherCheatSprite
+      value: 
+      objectReference: {fileID: 385989671}
     - target: {fileID: 4609247200709914722, guid: 931376d350ebbe54eb0a37c2c235adad, type: 3}
       propertyPath: invincibleCheatSprite
       value: 
@@ -6925,7 +6929,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -22.6, y: -112}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 350, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1567302638
 MonoBehaviour:
@@ -7003,8 +7007,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2280701596c55604da853efd525fa2d0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8189,8 +8193,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You Won!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df1e8f26cae80a04ca75e886c4780811, type: 2}
+  m_sharedMaterial: {fileID: -1111397312477458114, guid: df1e8f26cae80a04ca75e886c4780811, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8214,8 +8218,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 56
+  m_fontSizeBase: 56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
